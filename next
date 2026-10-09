@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNIZHKA — Другий ключ</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 30px 20px;
+      background: radial-gradient(
+        circle at top,
+        #2a1719 0%,
+        #0d0b0b 45%,
+        #050505 100%
+      );
+      color: #eee5dc;
+      font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quest {
+      width: 100%;
+      max-width: 500px;
+      padding: 35px 28px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(100,160,255,.25);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    }
+
+    .snowflake {
+      text-align: center;
+      font-size: 45px;
+      color: #a8d5ff;
+      text-shadow: 0 0 20px #428dff;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: normal;
+      font-size: 29px;
+      margin: 0 0 30px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.85;
+      margin: 0 0 18px;
+    }
+
+    .timecode {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 42px;
+      font-weight: bold;
+      letter-spacing: 5px;
+      color: #91c6ff;
+      background: rgba(45,101,213,.12);
+      border: 1px solid rgba(100,160,255,.25);
+      border-radius: 15px;
+      padding: 24px;
+      margin: 25px 0;
+      text-shadow: 0 0 18px rgba(100,160,255,.5);
+    }
+
+    .hint {
+      color: #91c6ff;
+      font-style: italic;
+    }
+
+    .password-area {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,.15);
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+      margin: 15px 0;
+      background: #151820;
+      border: 1px solid #4b78a8;
+      border-radius: 12px;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #8ec8ff;
+      box-shadow: 0 0 15px rgba(70,140,255,.25);
+    }
+
+    button, .next-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: #2d65d5;
+      border: none;
+      border-radius: 14px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: .3s;
+    }
+
+    button:hover, .next-btn:hover {
+      background: #4386ee;
+      transform: scale(1.02);
+    }
+
+    #message {
+      min-height: 24px;
+      margin-top: 20px;
+      text-align: center;
+      color: #a8d5ff;
+    }
+
+    #next {
+      display: none;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .quest {
+        padding: 28px 20px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="quest">
+
+    <div class="snowflake">❄</div>
+
+    <h1>Так тримати! 💙</h1>
+
+    <p>
+      Скажи чесно, скучила за таймкодами?))
+    </p>
+
+    <p>Ось тобі один із них:</p>
+
+    <!-- ТУТ ЗМІНЮЄШ ТАЙМКОД -->
+    <div class="timecode">1:54</div>
+
+    <p>
+      Наступне кодове слово знаходиться саме там.
+    </p>
+
+    <p>Питання — де шукати?</p>
+
+    <p>
+      Шукай там, де яскраве сонце,
+      а в назві — злива і танець.
+    </p>
+
+    <p>
+      Ти її точно пам'ятаєш. ❄️
+    </p>
+
+    <p class="hint">
+      Підказка: слово-пароль англійською.
+    </p>
+
+    <div class="password-area">
+
+      <label for="password">
+        Введи знайдене слово
+      </label>
+
+      <input
+        type="text"
+        id="password"
+        placeholder="Enter password..."
+        autocomplete="off"
+      >
+
+      <button onclick="checkPassword()">
+        Перевірити ❄️
+      </button>
+
+      <div id="message" aria-live="polite"></div>
+
+      <a href="stage4.html" class="next-btn" id="next">
+        Наступна підказка →
+      </a>
+
+    </div>
+
+  </main>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("password");
+      const message = document.getElementById("message");
+      const next = document.getElementById("next");
+
+      const answer = input.value.trim().toLowerCase();
+
+      // ТУТ ЗМІНЮЄШ ПРАВИЛЬНИЙ ПАРОЛЬ
+      if (answer === "rain") {
+        message.textContent =
+          "Правильно! Наступний ключ знайдено 💙";
+
+        next.style.display = "block";
+        input.disabled = true;
+
+      } else {
+        message.textContent = "Спробуй ще раз ❄️";
+        next.style.display = "none";
+      }
+    }
+
+    document.getElementById("password")
+      .addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          checkPassword();
+        }
+      });
+  </script>
+
+</body>
+</html>
