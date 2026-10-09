@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNIZHKA — The Final Chapter</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 35px 20px;
+      background: radial-gradient(
+        circle at top,
+        #2a1719 0%,
+        #0d0b0b 45%,
+        #050505 100%
+      );
+      color: #eee5dc;
+      font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .final-card {
+      width: 100%;
+      max-width: 540px;
+      padding: 40px 30px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(100,160,255,.25);
+      border-radius: 22px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.5);
+      animation: fadeIn 1.5s ease;
+    }
+
+    .snowflake {
+      text-align: center;
+      font-size: 50px;
+      color: #a8d5ff;
+      text-shadow: 0 0 25px #428dff;
+      margin-bottom: 15px;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .chapter {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #91c6ff;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 29px;
+      font-weight: normal;
+      line-height: 1.5;
+      color: #f3e9e7;
+      margin: 0 0 35px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.95;
+      margin: 0 0 23px;
+    }
+
+    strong {
+      color: #a8d5ff;
+      font-weight: normal;
+    }
+
+    .ending {
+      margin-top: 35px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,.15);
+      text-align: center;
+    }
+
+    .heart {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #91c6ff;
+      text-shadow: 0 0 15px rgba(100,160,255,.5);
+    }
+
+    .anniversary {
+      font-size: 23px;
+      color: #a8d5ff;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .quote {
+      font-size: 15px;
+      font-style: italic;
+      color: #b8aaa8;
+      line-height: 1.8;
+    }
+
+    .ps {
+      margin-top: 35px;
+      font-size: 14px;
+      font-style: italic;
+      color: #a89c99;
+      text-align: center;
+    }
+
+    .prize-section {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(100,160,255,.25);
+      text-align: center;
+    }
+
+    .prize-intro {
+      color: #a8d5ff;
+      font-size: 16px;
+      margin-bottom: 22px;
+    }
+
+    .prize-btn {
+      display: block;
+      width: 100%;
+      padding: 19px 15px;
+      background: #2d65d5;
+      color: white;
+      text-decoration: none;
+      border-radius: 16px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: .5px;
+      box-shadow: 0 10px 30px rgba(45,101,213,.35);
+      transition: .3s ease;
+    }
+
+    .prize-btn:hover {
+      background: #4386ee;
+      transform: scale(1.03);
+      box-shadow: 0 15px 40px rgba(45,101,213,.55);
+    }
+
+    .footer {
+      margin-top: 35px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #675c59;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 10px rgba(100,160,255,.4);
+      }
+      50% {
+        text-shadow: 0 0 30px rgba(100,160,255,.9);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .final-card {
+        padding: 30px 22px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .anniversary {
+        font-size: 20px;
+      }
+
+      .prize-btn {
+        font-size: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .final-card,
+      .snowflake {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="final-card">
+
+    <div class="snowflake">❄</div>
+
+    <div class="chapter">
+      THE FINAL CHAPTER • BETWEEN US
+    </div>
+
+    <h1>І ось ти тут, Сніжинко... 💙</h1>
+
+    <p>
+      Вітаю, ти розгадала всі загадки!))
+    </p>
+
+    <p>
+      Знаєш, я довго думав, що саме хотів би
+      сказати тобі наприкінці цієї маленької
+      подорожі нашими спогадами.
+    </p>
+
+    <p>
+      І зрозумів, що найбільше хочу сказати
+      одне просте слово — <strong>дякую</strong>.
+    </p>
+
+    <p>
+      Дякую тобі за цей рік.
+      За всі прекрасні моменти, за розмови,
+      сміх, жарти, пісні, за ті маленькі
+      дрібниці, які, можливо, навіть не здавалися
+      нам особливими, але з часом стали
+      дорогими спогадами.
+    </p>
+
+    <p>
+      За моменти, коли було легко й тепло.
+      За несподіванки, за щирість, за емоції,
+      які неможливо запланувати.
+    </p>
+
+    <p>
+      І особливо —
+      <strong>дякую за всю бентежність</strong>.
+      За ті миті, коли слова плуталися,
+      коли ми ніяковіли, сміялися невпопад,
+      коли звичайна розмова раптом ставала
+      чимось незвичайним.
+    </p>
+
+    <p>
+      Мабуть, саме такі моменти й роблять
+      історії по-справжньому живими.
+    </p>
+
+    <p>
+      Я не знаю, що принесе нам майбутнє.
+      І не хочу сьогодні загадувати наперед.
+    </p>
+
+    <p>
+      Але точно знаю, що цей рік подарував
+      мені багато того, про що я згадуватиму
+      з усмішкою.
+    </p>
+
+    <p>
+      І незалежно від того, як складатимуться
+      наші дороги, я радий, що одного дня
+      вони перетнулися.
+    </p>
+
+    <p>
+      Дякую, що була частиною моєї історії.
+      І що дозволила мені побути частиною твоєї.
+    </p>
+
+    <div class="ending">
+
+      <div class="heart">💙</div>
+
+      <div class="anniversary">
+        З нашою маленькою річницею,<br>
+        Сніжинко! ❄️
+      </div>
+
+      <div class="quote">
+        Деякі моменти хочеться прожити ще раз.<br>
+        А деякі — просто назавжди зберегти.
+      </div>
+
+    </div>
+
+    <div class="ps">
+      P.S. Сподіваюся, я хоча б трішки
+      змусив тебе сьогодні поностальгувати))
+    </div>
+
+    <!-- ПОСИЛАННЯ НА ПРИЗ -->
+
+    <div class="prize-section">
+
+      <p class="prize-intro">
+        Думаєш, це все?))<br>
+        На тебе чекає ще дещо... 🎁
+      </p>
+
+      <a href="prize.html" class="prize-btn">
+        🎁 Відкрити посилання на приз
+      </a>
+
+    </div>
+
+    <div class="footer">
+      ONE YEAR • MANY MEMORIES • BETWEEN US
+    </div>
+
+  </main>
+
+</body>
+</html>
