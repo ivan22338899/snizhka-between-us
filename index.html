@@ -46,6 +46,58 @@
       border: 1px solid rgba(184,100,112,.25);
     }
 
+    /* КНОПКА КВЕСТУ */
+
+    .quest-button {
+      margin: 35px 0;
+      text-align: center;
+    }
+
+    .start-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 18px 22px;
+      background: #b86470;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-family: Arial, sans-serif;
+      letter-spacing: 2px;
+      font-size: 17px;
+      font-weight: bold;
+      box-shadow: 0 10px 30px rgba(184,100,112,.35);
+      transition: 0.3s ease;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.05);
+      background: #cf7885;
+      box-shadow: 0 15px 40px rgba(184,100,112,.6);
+    }
+
+    /* ВЕЛИКА СНІЖИНКА */
+
+    .snowflake {
+      display: inline-block;
+      font-size: 38px;
+      line-height: 1;
+      color: white;
+      text-shadow: 0 0 15px white;
+      animation: snowGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes snowGlow {
+      0%, 100% {
+        text-shadow: 0 0 8px rgba(255,255,255,.5);
+      }
+      50% {
+        text-shadow: 0 0 22px rgba(255,255,255,1);
+      }
+    }
+
     h1 {
       margin: 28px 0 3px;
       font-size: 34px;
@@ -74,42 +126,31 @@
       height: 42px;
       filter: sepia(20%);
     }
-.quest-button {
-  margin: 40px 0;
-}
 
-.start-btn {
-  display: inline-block;
-  padding: 18px 35px;
-  background: #b86470;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 30px;
-  font-family: Arial, sans-serif;
-  letter-spacing: 3px;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 10px 30px rgba(184,100,112,.35);
-  transition: 0.3s;
-}
-
-.start-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 15px 40px rgba(184,100,112,.55);
-}
-
-.snowflake {
-    font-size: 32px;
-    margin-right: 10px;
-    vertical-align: middle;
-    text-shadow: 0 0 15px white;
-}
     .footer {
       margin-top: 27px;
       font-family: Arial, sans-serif;
       font-size: 9px;
       letter-spacing: 4px;
       color: #675c59;
+    }
+
+    @media (max-width: 400px) {
+      .start-btn {
+        font-size: 14px;
+        letter-spacing: 1px;
+        gap: 8px;
+      }
+
+      .snowflake {
+        font-size: 34px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .snowflake {
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -121,16 +162,19 @@
     <div class="label">PRIVATE SESSION • 2026</div>
 
     <img
-  class="cover"
-  src="7777777777.png"
-  alt="SNIZHKA — BETWEEN US"
->
+      class="cover"
+      src="7777777777.png"
+      alt="SNIZHKA — BETWEEN US"
+    >
 
-<div class="quest-button">
-  <a href="quest.html" class="start-btn">
-      <span class="snowflake">❄</span> ВІДКРИТИ ІСТОРІЮ
-  </a>
-</div>
+    <!-- КНОПКА ПОЧАТКУ КВЕСТУ -->
+
+    <div class="quest-button">
+      <a href="quest.html" class="start-btn">
+        <span class="snowflake">❄</span>
+        <span>ВІДКРИТИ ІСТОРІЮ</span>
+      </a>
+    </div>
 
     <h1>SNIZHKA</h1>
     <h2>BETWEEN US</h2>
