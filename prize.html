@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNIZHKA — The Last Secret</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 30px 20px;
+      background: radial-gradient(
+        circle at top,
+        #2a1719 0%,
+        #0d0b0b 45%,
+        #050505 100%
+      );
+      color: #eee5dc;
+      font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 520px;
+      padding: 38px 28px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(100,160,255,.25);
+      border-radius: 22px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.5);
+      animation: appear 1s ease;
+    }
+
+    .symbol {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 18px;
+      filter: drop-shadow(0 0 15px #428dff);
+    }
+
+    .chapter {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #91c6ff;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 27px;
+      font-weight: normal;
+      line-height: 1.5;
+      margin: 0 0 32px;
+      color: #f3e9e7;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.9;
+      margin: 0 0 20px;
+    }
+
+    .highlight {
+      color: #a8d5ff;
+    }
+
+    .password-area {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,.15);
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+      margin: 15px 0;
+      background: #151820;
+      border: 1px solid #4b78a8;
+      border-radius: 12px;
+      color: white;
+      font-size: 17px;
+      text-align: center;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #8ec8ff;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 17px;
+      background: #2d65d5;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    button:hover {
+      background: #4386ee;
+      transform: scale(1.02);
+    }
+
+    #message {
+      margin-top: 18px;
+      min-height: 24px;
+      text-align: center;
+      color: #a8d5ff;
+      font-size: 15px;
+    }
+
+    /* СЕКРЕТНИЙ ПОДАРУНОК */
+
+    #gift {
+      display: none;
+      text-align: center;
+      animation: appear 1.5s ease;
+    }
+
+    .gift-title {
+      color: #a8d5ff;
+      font-size: 29px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    .certificate {
+      margin: 30px 0;
+      padding: 30px 20px;
+      background: linear-gradient(
+        135deg,
+        rgba(45,101,213,.2),
+        rgba(10,15,30,.8)
+      );
+      border: 1px solid rgba(145,198,255,.6);
+      border-radius: 18px;
+      box-shadow: 0 0 35px rgba(45,101,213,.2);
+    }
+
+    .certificate-icon {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .certificate-heading {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #91c6ff;
+      margin-bottom: 18px;
+    }
+
+    .certificate-name {
+      font-size: 26px;
+      line-height: 1.5;
+      color: #f3e9e7;
+      margin-bottom: 18px;
+    }
+
+    .certificate-note {
+      color: #b8aaa8;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .ending {
+      margin-top: 30px;
+      font-style: italic;
+      color: #a8d5ff;
+      line-height: 1.8;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #675c59;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .gift-title {
+        font-size: 25px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card, #gift {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <!-- ОСТАННЯ ЗАГАДКА -->
+
+    <section id="puzzle">
+
+      <div class="symbol">❄️</div>
+
+      <div class="chapter">
+        THE LAST SECRET • BETWEEN US
+      </div>
+
+      <h1>
+        Ти майже дісталася до свого подарунка... 🎁
+      </h1>
+
+      <p>
+        Думала, що всі загадки вже позаду?))
+      </p>
+
+      <p>
+        Є ще одна маленька таємниця.
+      </p>
+
+      <p>
+        Пам'ятаєш усі слова, які допомагали тобі
+        відкривати наступні сторінки?
+      </p>
+
+      <p>
+        Вони були не просто паролями.
+      </p>
+
+      <p>
+        Кожне з них — маленька частинка
+        одного послання, яке я залишив для тебе.
+      </p>
+
+      <p class="highlight">
+        Твоє останнє завдання:
+      </p>
+
+      <p>
+        Збери всі знайдені слова в одну фразу.
+        Розташуй їх у правильному порядку,
+        щоб отримати приховане послання.
+      </p>
+
+      <p>
+        І коли знайдеш відповідь —
+        введи її нижче.
+      </p>
+
+      <div class="password-area">
+
+        <input
+          type="text"
+          id="password"
+          placeholder="Тут буде твоє послання..."
+          autocomplete="off"
+          aria-label="Фінальна фраза"
+        >
+
+        <button onclick="checkPassword()">
+          Розкрити останній секрет ❄️
+        </button>
+
+        <div id="message" aria-live="polite"></div>
+
+      </div>
+
+      <p class="ending">
+        Іноді найкращі подарунки
+        починаються зі слів... 💙
+      </p>
+
+    </section>
+
+    <!-- ПОДАРУНОК ПІСЛЯ ПРАВИЛЬНОЇ ВІДПОВІДІ -->
+
+    <section id="gift">
+
+      <div class="symbol">🎁</div>
+
+      <div class="chapter">
+        YOU FOUND THE LAST SECRET
+      </div>
+
+      <h2 class="gift-title">
+        Вітаю, Сніжинко! 💙
+      </h2>
+
+      <p>
+        Ти знайшла всі підказки,
+        розгадала всі загадки
+        й дісталася до самого кінця.
+      </p>
+
+      <p>
+        А тепер настав час
+        отримати свою нагороду!
+      </p>
+
+      <div class="certificate">
+
+        <div class="certificate-icon">📚</div>
+
+        <div class="certificate-heading">
+          A LITTLE GIFT FOR YOU
+        </div>
+
+        <div class="certificate-name">
+          Подарунковий сертифікат<br>
+          на придбання книг
+        </div>
+
+        <div class="certificate-note">
+          Для нових історій,<br>
+          нових емоцій і нових світів,<br>
+          які ще чекають на тебе.
+        </div>
+
+      </div>
+
+      <p>
+        Нехай серед нових сторінок
+        ти знайдеш ще багато історій,
+        які захочеться запам'ятати.
+      </p>
+
+      <p class="ending">
+        З маленькою річницею, Сніжинко! ❄️💙
+      </p>
+
+    </section>
+
+    <div class="footer">
+      SNIZHKA • BETWEEN US • 2026
+    </div>
+
+  </main>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("password");
+      const message = document.getElementById("message");
+
+      const answer = input.value
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, " ");
+
+      // ТУТ ЗМІНЮЄШ ФІНАЛЬНУ ФРАЗУ
+      const correctPhrase = "квіти сніжинка rain memory";
+
+      if (answer === correctPhrase) {
+        document.getElementById("puzzle").style.display = "none";
+        document.getElementById("gift").style.display = "block";
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      } else {
+        message.textContent =
+          "Майже! Згадай усі свої ключі ❄️";
+      }
+    }
+
+    document.getElementById("password")
+      .addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          checkPassword();
+        }
+      });
+  </script>
+
+</body>
+</html>
