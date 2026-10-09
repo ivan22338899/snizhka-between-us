@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +13,12 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background:
-        radial-gradient(circle at top, #2a1719 0%, #0d0b0b 45%, #050505 100%);
+      background: radial-gradient(
+        circle at top,
+        #2a1719 0%,
+        #0d0b0b 45%,
+        #050505 100%
+      );
       color: #eee5dc;
       font-family: Georgia, "Times New Roman", serif;
       display: flex;
@@ -50,7 +54,6 @@
 
     .quest-button {
       margin: 35px 0;
-      text-align: center;
     }
 
     .start-btn {
@@ -60,24 +63,24 @@
       gap: 12px;
       width: 100%;
       padding: 18px 22px;
-      background: #2478d4;
-      color: #ffffff;
-      text-decoration: none;
+      background: #2d65d5;
+      color: white;
+      border: none;
       border-radius: 30px;
       font-family: Arial, sans-serif;
       letter-spacing: 2px;
       font-size: 17px;
       font-weight: bold;
-      box-shadow: 0 10px 30px rgba(184,100,112,.35);
+      box-shadow: 0 10px 30px rgba(45,101,213,.4);
+      cursor: pointer;
       transition: 0.3s ease;
     }
 
     .start-btn:hover {
-  transform: scale(1.05);
-  background: #b86470;
-box-shadow: 0 10px 30px rgba(52, 120, 184, .35);
-}
-    /* ВЕЛИКА СНІЖИНКА */
+      background: #4386ee;
+      transform: scale(1.04);
+      box-shadow: 0 15px 40px rgba(45,101,213,.6);
+    }
 
     .snowflake {
       display: inline-block;
@@ -93,7 +96,83 @@ box-shadow: 0 10px 30px rgba(52, 120, 184, .35);
         text-shadow: 0 0 8px rgba(255,255,255,.5);
       }
       50% {
-        text-shadow: 0 0 22px rgba(255,255,255,1);
+        text-shadow: 0 0 22px white;
+      }
+    }
+
+    /* ПОЛЕ ПАРОЛЯ */
+
+    .password-box {
+      display: none;
+      margin: 20px 0 35px;
+      padding: 25px;
+      background: rgba(45,101,213,.08);
+      border: 1px solid rgba(100,160,255,.35);
+      border-radius: 20px;
+      animation: fadeIn .5s ease;
+    }
+
+    .password-box h3 {
+      font-size: 21px;
+      font-weight: normal;
+      margin: 0 0 12px;
+      color: #a8d5ff;
+    }
+
+    .password-box p {
+      font-size: 14px;
+      color: #b8aaa8;
+      line-height: 1.7;
+    }
+
+    .password-box input {
+      width: 100%;
+      padding: 15px;
+      margin: 12px 0;
+      background: #151820;
+      border: 1px solid #4b78a8;
+      border-radius: 12px;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+      outline: none;
+    }
+
+    .password-box input:focus {
+      border-color: #8ec8ff;
+    }
+
+    .check-btn {
+      width: 100%;
+      padding: 15px;
+      background: #2d65d5;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .check-btn:hover {
+      background: #4386ee;
+    }
+
+    #message {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #a8d5ff;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
@@ -166,13 +245,39 @@ box-shadow: 0 10px 30px rgba(52, 120, 184, .35);
       alt="SNIZHKA — BETWEEN US"
     >
 
-    <!-- КНОПКА ПОЧАТКУ КВЕСТУ -->
+    <!-- КНОПКА ПОЧАТКУ -->
 
     <div class="quest-button">
-      <a href="quest.html" class="start-btn">
+      <button class="start-btn" onclick="showPassword()">
         <span class="snowflake">❄</span>
         <span>Ти мене знайшла)) Готова почати?</span>
-      </a>
+      </button>
+    </div>
+
+    <!-- ПЕРШИЙ ПАРОЛЬ -->
+
+    <div class="password-box" id="passwordBox">
+
+      <h3>❄️ Перший ключ</h3>
+
+      <p>
+        Щоб продовжити, введи пароль,
+        який ти отримала разом із квітами.
+      </p>
+
+      <input
+        type="text"
+        id="password"
+        placeholder="Введи пароль..."
+        autocomplete="off"
+      >
+
+      <button class="check-btn" onclick="checkPassword()">
+        Відкрити ❄️
+      </button>
+
+      <div id="message" aria-live="polite"></div>
+
     </div>
 
     <h1>SNIZHKA</h1>
@@ -191,6 +296,40 @@ box-shadow: 0 10px 30px rgba(52, 120, 184, .35);
     </div>
 
   </main>
+
+  <script>
+    function showPassword() {
+      const box = document.getElementById("passwordBox");
+
+      box.style.display = "block";
+      document.getElementById("password").focus();
+    }
+
+    function checkPassword() {
+      const input = document.getElementById("password");
+      const message = document.getElementById("message");
+
+      const answer = input.value.trim().toLowerCase();
+
+      if (answer === "квіти") {
+        message.textContent = "Правильно! Відкриваємо історію... ❄️";
+
+        setTimeout(function() {
+          window.location.href = "quest.html";
+        }, 1000);
+
+      } else {
+        message.textContent = "Не зовсім... Спробуй ще раз ❄️";
+      }
+    }
+
+    document.getElementById("password")
+      .addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          checkPassword();
+        }
+      });
+  </script>
 
 </body>
 </html>
