@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNIZHKA — Перший ключ</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 35px 20px;
+      background: radial-gradient(
+        circle at top,
+        #2a1719 0%,
+        #0d0b0b 45%,
+        #050505 100%
+      );
+      color: #eee5dc;
+      font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quest {
+      width: 100%;
+      max-width: 500px;
+      padding: 35px 28px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(100,160,255,0.25);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .snowflake {
+      font-size: 45px;
+      text-align: center;
+      color: #a8d5ff;
+      text-shadow: 0 0 20px #428dff;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: normal;
+      font-size: 29px;
+      margin: 0 0 30px;
+      color: #f4e9e6;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.85;
+      margin: 0 0 18px;
+    }
+
+    .highlight {
+      color: #91c6ff;
+    }
+
+    .password-area {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+      margin: 15px 0;
+      background: #151820;
+      border: 1px solid #4b78a8;
+      border-radius: 12px;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #8ec8ff;
+      box-shadow: 0 0 15px rgba(70,140,255,0.25);
+    }
+
+    button, .next-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: #2d65d5;
+      border: none;
+      border-radius: 14px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    button:hover, .next-btn:hover {
+      background: #4386ee;
+      transform: scale(1.02);
+    }
+
+    #message {
+      min-height: 24px;
+      margin-top: 20px;
+      text-align: center;
+      color: #a8d5ff;
+    }
+
+    #next {
+      display: none;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .quest {
+        padding: 28px 20px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="quest">
+
+    <div class="snowflake">❄</div>
+
+    <h1>Привіт, Сніжинко!</h1>
+
+    <p>
+      Сьогодні особливий день, і я хочу зробити
+      його ще більш особливим. Тому цей маленький
+      квест — для тебе.
+    </p>
+
+    <p>
+      Зв'язок із тобою залишив багато слідів.
+      І перший із них зберігається там,
+      де мої думки колись стали матеріальною
+      історією для тебе.
+    </p>
+
+    <p>
+      Ти сьогодні тримала це в руках.
+    </p>
+
+    <p>
+      Знайди цю річ. Щоб відкрити її,
+      тобі знадобиться особлива сніжинка ❄️.
+    </p>
+
+    <p>
+      Відніми від сьогоднішнього числа кількість
+      місяців, протягом яких ми знаємо одне одного.
+      Отримане число — твій орієнтир.
+    </p>
+
+    <p>
+      Перше слово, яке ти там побачиш, —
+      <span class="highlight">твій пароль.</span>
+    </p>
+
+    <p style="text-align:center">
+      Удачі! ❄️
+    </p>
+
+    <div class="password-area">
+
+      <label for="password">Введи знайдене слово</label>
+
+      <input
+        type="text"
+        id="password"
+        placeholder="Твій пароль..."
+        autocomplete="off"
+      >
+
+      <button onclick="checkPassword()">
+        Перевірити ❄️
+      </button>
+
+      <div id="message" aria-live="polite"></div>
+
+      <a href="next.html" class="next-btn" id="next">
+        Наступна підказка →
+      </a>
+
+    </div>
+
+  </main>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("password");
+      const message = document.getElementById("message");
+      const next = document.getElementById("next");
+
+      const answer = input.value.trim().toLowerCase();
+
+      if (answer === "сніжинка") {
+        message.textContent =
+          "Молодець, Сніжинко! Ти знайшла перший ключ 💙";
+        next.style.display = "block";
+        input.disabled = true;
+      } else {
+        message.textContent = "Спробуй ще раз ❄️";
+        next.style.display = "none";
+      }
+    }
+
+    document.getElementById("password")
+      .addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          checkPassword();
+        }
+      });
+  </script>
+
+</body>
+</html>
