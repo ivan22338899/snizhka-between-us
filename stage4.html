@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNIZHKA — Chapter IV</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 30px 20px;
+      background: radial-gradient(
+        circle at top,
+        #2a1719 0%,
+        #0d0b0b 45%,
+        #050505 100%
+      );
+      color: #eee5dc;
+      font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quest {
+      width: 100%;
+      max-width: 500px;
+      padding: 35px 28px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(100,160,255,.25);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    }
+
+    .snowflake {
+      text-align: center;
+      font-size: 45px;
+      color: #a8d5ff;
+      text-shadow: 0 0 20px #428dff;
+      margin-bottom: 12px;
+    }
+
+    .chapter {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #91c6ff;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 25px;
+      font-weight: normal;
+      line-height: 1.4;
+      margin: 0 0 32px;
+      color: #f3e9e7;
+    }
+
+    h2 {
+      font-size: 21px;
+      font-weight: normal;
+      color: #a8d5ff;
+      margin: 0 0 24px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.85;
+      margin: 0 0 19px;
+    }
+
+    .coordinates {
+      margin: 28px 0;
+      padding: 24px 18px;
+      background: rgba(45,101,213,.12);
+      border: 1px solid rgba(100,160,255,.25);
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .coordinates-title {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #91c6ff;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .coordinates-value {
+      font-size: 19px;
+      line-height: 1.8;
+      color: #f3e9e7;
+    }
+
+    .hint {
+      color: #91c6ff;
+      font-style: italic;
+      font-size: 15px;
+    }
+
+    .password-area {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,.15);
+      text-align: center;
+    }
+
+    label {
+      font-size: 16px;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+      margin: 15px 0;
+      background: #151820;
+      border: 1px solid #4b78a8;
+      border-radius: 12px;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #8ec8ff;
+      box-shadow: 0 0 15px rgba(70,140,255,.25);
+    }
+
+    button, .next-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: #2d65d5;
+      border: none;
+      border-radius: 14px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: .3s;
+    }
+
+    button:hover, .next-btn:hover {
+      background: #4386ee;
+      transform: scale(1.02);
+    }
+
+    #message {
+      min-height: 24px;
+      margin-top: 20px;
+      text-align: center;
+      color: #a8d5ff;
+    }
+
+    #next {
+      display: none;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .quest {
+        padding: 28px 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .coordinates-value {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="quest">
+
+    <div class="snowflake">❄</div>
+
+    <div class="chapter">
+      CHAPTER IV • BETWEEN US
+    </div>
+
+    <h1>Shimmy-shimmy, yay, shimmy! 💙</h1>
+
+    <h2>Дещо залишилось у мене...</h2>
+
+    <p>
+      Ти вже знайшла сліди,
+      які я залишив для тебе.
+    </p>
+
+    <p>
+      Але цього разу все навпаки.
+    </p>
+
+    <p>
+      Колись ти подарувала мені цілий світ.
+      У ньому сотні чужих думок,
+      історій і слів.
+      Але для мене найважливішим було те,
+      від кого він з'явився.
+    </p>
+
+    <p>
+      І сьогодні саме твій подарунок
+      допоможе тобі зробити ще один крок.
+    </p>
+
+    <!-- ТУТ ЗМІНЮЄШ КООРДИНАТИ -->
+
+    <div class="coordinates">
+
+      <div class="coordinates-title">
+        ❄ ТВОЇ КООРДИНАТИ ❄
+      </div>
+
+      <div class="coordinates-value">
+        Сторінка 54<br>
+        Рядок 7<br>
+        Слово 3
+      </div>
+
+    </div>
+
+    <p>
+      Знайди потрібне слово.
+      Воно стане наступним ключем.
+    </p>
+
+    <p class="hint">
+      Іноді найцінніші історії —
+      не ті, що написані всередині,
+      а ті, що пов'язані із самою книгою. ❄️
+    </p>
+
+    <div class="password-area">
+
+      <label for="password">
+        Введи знайдене слово
+      </label>
+
+      <input
+        type="text"
+        id="password"
+        placeholder="Твоє слово..."
+        autocomplete="off"
+      >
+
+      <button onclick="checkPassword()">
+        Перевірити ❄️
+      </button>
+
+      <div id="message" aria-live="polite"></div>
+
+      <a href="stage5.html" class="next-btn" id="next">
+        Наступна підказка →
+      </a>
+
+    </div>
+
+  </main>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("password");
+      const message = document.getElementById("message");
+      const next = document.getElementById("next");
+
+      const answer = input.value.trim().toLowerCase();
+
+      // ТУТ ЗМІНЮЄШ ПРАВИЛЬНИЙ ПАРОЛЬ
+      if (answer === "memory") {
+        message.textContent =
+          "Правильно! Ще один спогад знайдено 💙";
+
+        next.style.display = "block";
+        input.disabled = true;
+
+      } else {
+        message.textContent =
+          "Не зовсім... Спробуй ще раз ❄️";
+
+        next.style.display = "none";
+      }
+    }
+
+    document.getElementById("password")
+      .addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          checkPassword();
+        }
+      });
+  </script>
+
+</body>
+</html>
