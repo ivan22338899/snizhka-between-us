@@ -298,43 +298,45 @@
   </main>
 
   <script>
-    function showPassword() {
-      const box = document.getElementById("passwordBox");
+  function showPassword() {
+    const box = document.getElementById("passwordBox");
 
-      box.style.display = "block";
-      document.getElementById("password").focus();
+    box.style.display = "block";
+    document.getElementById("password").focus();
+  }
+
+  function normalizePassword(text) {
+    return text
+      .toLowerCase()
+      .replace(/['’ʼ`´]/g, "")
+      .trim();
+  }
+
+  function checkPassword() {
+    const input = document.getElementById("password");
+    const message = document.getElementById("message");
+
+    const answer = normalizePassword(input.value);
+
+    if (answer === "памятай") {
+      message.textContent = "Правильно! Відкриваємо історію... ❄️";
+
+      setTimeout(function() {
+        window.location.href = "quest.html";
+      }, 1000);
+
+    } else {
+      message.textContent = "Не зовсім... Спробуй ще раз ❄️";
     }
+  }
 
-    function checkPassword() {
-      const input = document.getElementById("password");
-      const message = document.getElementById("message");
-
-      const answer = input.value.trim().toLowerCase();
-    function normalizePassword(text) {
-      return text
-        .toLowerCase()
-        .replace(/['’ʼ`]/g, "")
-        .trim();
-}
-      if (normalizePassword(password) === "памятай") {
-        message.textContent = "Правильно! Відкриваємо історію... ❄️";
-
-        setTimeout(function() {
-          window.location.href = "quest.html";
-        }, 1000);
-
-      } else {
-        message.textContent = "Не зовсім... Спробуй ще раз ❄️";
+  document.getElementById("password")
+    .addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        checkPassword();
       }
-    }
-
-    document.getElementById("password")
-      .addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-          checkPassword();
-        }
-      });
-  </script>
+    });
+</script>
 
 </body>
 </html>
