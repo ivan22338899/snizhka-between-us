@@ -241,9 +241,6 @@
 
       <div class="symbol">❄️</div>
 
-      <div class="chapter">
-        THE LAST SECRET • BETWEEN US
-      </div>
 
       <h1>
         Ти майже дісталася до свого подарунка... 🎁
@@ -283,7 +280,7 @@
 
       <p>
         І коли знайдеш відповідь —
-        введи її нижче.
+        введи її нижче.(Важливо фраза українською і слів 4)
       </p>
 
       <div class="password-area">
@@ -383,10 +380,12 @@
       const answer = input.value
         .trim()
         .toLowerCase()
+        .replace(/['’ʼ`´]/g, "")
+        .replace(/[.,!?—–-]/g, " ")
         .replace(/\s+/g, " ");
 
       // ТУТ ЗМІНЮЄШ ФІНАЛЬНУ ФРАЗУ
-      const correctPhrase = "квіти сніжинка rain memory";
+      const correctPhrase = "памятай сніжинка ти чудо";
 
       if (answer === correctPhrase) {
         document.getElementById("puzzle").style.display = "none";
