@@ -310,8 +310,13 @@
       const message = document.getElementById("message");
 
       const answer = input.value.trim().toLowerCase();
-
-      if (answer === "Пам'ятай") {
+    function normalizePassword(text) {
+      return text
+        .toLowerCase()
+        .replace(/['’ʼ`]/g, "")
+        .trim();
+}
+      if (normalizePassword(password) === "памятай") {
         message.textContent = "Правильно! Відкриваємо історію... ❄️";
 
         setTimeout(function() {
