@@ -92,14 +92,21 @@
     }
 
     @keyframes snowGlow {
-      0%, 100% {
-        text-shadow: 0 0 8px rgba(255,255,255,.5);
-      }
-      50% {
-        text-shadow: 0 0 22px white;
-      }
-    }
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+    text-shadow: 0 0 5px white;
+  }
 
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+    text-shadow:
+      0 0 15px white,
+      0 0 30px #8ec8ff,
+      0 0 50px #4386ee;
+  }
+}
     /* ПОЛЕ ПАРОЛЯ */
 
     .password-box {
