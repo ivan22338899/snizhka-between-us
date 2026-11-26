@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -6,130 +7,200 @@
   <title>SNIZHKA — BETWEEN US</title>
 
   <style>
-    * {
-      box-sizing: border-box;
+    * { box-sizing: border-box; }
+
+    :root {
+      --pink: #e87891;
+      --muted: #a58b90;
+      --blue: #4850e9;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(
-        circle at top,
-        #2a1719 0%,
-        #0d0b0b 45%,
-        #050505 100%
-      );
+      padding: 35px 16px 50px;
+      background:
+        radial-gradient(ellipse at 50% 0%, #39171f, transparent 55%),
+        radial-gradient(ellipse at 50% 85%, #210e17, transparent 60%),
+        #090608;
       color: #eee5dc;
       font-family: Georgia, "Times New Roman", serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px 20px;
     }
 
-    .player {
-      width: 100%;
-      max-width: 430px;
+    .page {
+      max-width: 850px;
+      margin: auto;
       text-align: center;
     }
 
     .label {
-      font-family: Arial, sans-serif;
-      font-size: 11px;
+      font: 11px Arial, sans-serif;
       letter-spacing: 5px;
-      color: #b86470;
-      margin-bottom: 18px;
+      color: var(--pink);
+      margin-bottom: 26px;
+    }
+
+    .artwork {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      margin: auto;
     }
 
     .cover {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
       display: block;
-      box-shadow: 0 25px 70px rgba(0,0,0,.65);
-      border: 1px solid rgba(184,100,112,.25);
+      width: min(100%, 480px);
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 1px solid #753744;
+      box-shadow: 0 20px 65px #000b;
     }
 
-    /* КНОПКА КВЕСТУ */
+    .memorabilia {
+      width: 190px;
+      flex-shrink: 0;
+      transform: rotate(7deg);
+    }
+
+    .cassette {
+      position: relative;
+      height: 125px;
+      padding: 14px;
+      border: 2px solid #925061;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #371d25, #0e0b0e);
+      box-shadow: 0 15px 25px #0009;
+    }
+
+    .cassette-title {
+      font: 12px Arial, sans-serif;
+      letter-spacing: 4px;
+      color: var(--pink);
+    }
+
+    .tape-window {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 45px;
+      margin-top: 10px;
+      background: #100d11;
+      border: 1px solid #67404b;
+      border-radius: 20px;
+    }
+
+    .reel {
+      width: 28px;
+      height: 28px;
+      border: 6px dotted #bd8a92;
+      border-radius: 50%;
+    }
+
+    .cassette small {
+      color: #e7c5bd;
+      font-style: italic;
+    }
+
+    .photo-note {
+      margin: 22px auto 0;
+      padding: 10px 10px 25px;
+      background: #d5c3b5;
+      color: #513d42;
+      transform: rotate(-9deg);
+      box-shadow: 0 12px 30px #0009;
+    }
+
+    .photo-note .winter {
+      height: 95px;
+      background:
+        linear-gradient(0deg, #161e2b, transparent),
+        repeating-linear-gradient(
+          80deg,
+          transparent 0 17px,
+          #19232b 18px 21px,
+          transparent 22px 31px
+        ),
+        linear-gradient(#778393, #ccd3d8);
+    }
+
+    .photo-note span {
+      display: block;
+      padding-top: 10px;
+      font-size: 12px;
+      font-style: italic;
+    }
 
     .quest-button {
-      margin: 35px 0;
+      max-width: 480px;
+      margin: 32px auto;
     }
 
     .start-btn {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
       width: 100%;
-      padding: 18px 22px;
-      background: #2d65d5;
+      padding: 17px 20px;
+      background: linear-gradient(120deg, #343ee0, #4d48e5);
       color: white;
-      border: none;
-      border-radius: 30px;
-      font-family: Arial, sans-serif;
-      letter-spacing: 2px;
-      font-size: 17px;
-      font-weight: bold;
-      box-shadow: 0 10px 30px rgba(45,101,213,.4);
+      border: 1px solid #747aff;
+      border-radius: 35px;
+      font: bold 16px Arial, sans-serif;
+      letter-spacing: 1.5px;
       cursor: pointer;
-      transition: 0.3s ease;
+      box-shadow: 0 0 35px #4448e66b;
+      transition: .3s;
     }
 
     .start-btn:hover {
-      background: #4386ee;
-      transform: scale(1.04);
-      box-shadow: 0 15px 40px rgba(45,101,213,.6);
+      transform: scale(1.03);
+      box-shadow: 0 0 45px #556affaa;
     }
 
     .snowflake {
       display: inline-block;
-      font-size: 38px;
-      line-height: 1;
+      font-size: 36px;
       color: white;
-      text-shadow: 0 0 15px white;
       animation: snowGlow 3s ease-in-out infinite;
     }
 
     @keyframes snowGlow {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.75;
-    text-shadow: 0 0 5px white;
-  }
-
-  50% {
-    transform: scale(1.25);
-    opacity: 1;
-    text-shadow:
-      0 0 15px white,
-      0 0 30px #8ec8ff,
-      0 0 50px #4386ee;
-  }
-}
-    /* ПОЛЕ ПАРОЛЯ */
+      0%, 100% {
+        transform: scale(1);
+        opacity: .75;
+        text-shadow: 0 0 5px white;
+      }
+      50% {
+        transform: scale(1.25);
+        opacity: 1;
+        text-shadow:
+          0 0 15px white,
+          0 0 30px #8ec8ff,
+          0 0 50px #4386ee;
+      }
+    }
 
     .password-box {
       display: none;
-      margin: 20px 0 35px;
+      max-width: 480px;
+      margin: 20px auto 35px;
       padding: 25px;
-      background: rgba(45,101,213,.08);
-      border: 1px solid rgba(100,160,255,.35);
+      background: #15203b80;
+      border: 1px solid #648dca88;
       border-radius: 20px;
       animation: fadeIn .5s ease;
     }
 
     .password-box h3 {
-      font-size: 21px;
       font-weight: normal;
-      margin: 0 0 12px;
       color: #a8d5ff;
     }
 
     .password-box p {
-      font-size: 14px;
       color: #b8aaa8;
-      line-height: 1.7;
+      font-size: 14px;
     }
 
     .password-box input {
@@ -142,11 +213,6 @@
       color: white;
       font-size: 18px;
       text-align: center;
-      outline: none;
-    }
-
-    .password-box input:focus {
-      border-color: #8ec8ff;
     }
 
     .check-btn {
@@ -154,86 +220,222 @@
       padding: 15px;
       background: #2d65d5;
       color: white;
-      border: none;
+      border: 0;
       border-radius: 12px;
       font-size: 16px;
-      font-weight: bold;
       cursor: pointer;
-      transition: .3s;
-    }
-
-    .check-btn:hover {
-      background: #4386ee;
     }
 
     #message {
       margin-top: 15px;
-      font-size: 14px;
       color: #a8d5ff;
+      font-size: 14px;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      margin: 28px 0 3px;
-      font-size: 34px;
-      font-weight: normal;
-      letter-spacing: 6px;
-    }
-
-    h2 {
-      margin: 0;
-      color: #b86470;
-      font-family: Arial, sans-serif;
-      font-size: 13px;
+      margin: 24px 0 4px;
+      font-size: 36px;
       font-weight: normal;
       letter-spacing: 7px;
     }
 
-    .headphones {
-      margin: 18px 0 24px;
-      font-style: italic;
-      font-size: 13px;
-      color: #8f8580;
+    h2 {
+      margin: 0;
+      color: var(--pink);
+      font: 13px Arial, sans-serif;
+      letter-spacing: 7px;
     }
 
-    audio {
-      width: 100%;
-      height: 42px;
-      filter: sepia(20%);
+    .headphones {
+      margin: 16px 0 24px;
+      font-size: 13px;
+      font-style: italic;
+      color: #a38e8b;
     }
+
+    .soundtrack-title {
+      margin: 28px 0 18px;
+      font-size: 21px;
+      font-style: italic;
+      color: var(--pink);
+    }
+
+    .archive {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .vinyl {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      left: -65px;
+      top: 25px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, #ac5068 0 14%, #181218 15% 20%,
+          transparent 21%),
+        repeating-radial-gradient(
+          circle,
+          #171318 0 3px,
+          #292027 4px 5px
+        );
+      border: 4px solid #171117;
+      box-shadow: 0 0 20px #000b;
+    }
+
+    .vinyl.spinning {
+      animation: spin 7s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .playlist {
+      position: relative;
+      margin-left: 55px;
+      padding: 20px 22px;
+      background:
+        linear-gradient(135deg, #341921ee, #120d12f5);
+      border: 1px solid #8c4056;
+      border-radius: 8px;
+      box-shadow: 0 15px 45px #0009;
+    }
+
+    .track {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      min-height: 49px;
+      padding: 10px 12px;
+      background: transparent;
+      color: #f1e5e4;
+      border: 0;
+      border-bottom: 1px solid #71404a66;
+      text-align: left;
+      font: 14px Arial, sans-serif;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .track:last-child { border-bottom: 0; }
+
+    .track:hover { background: #64283b66; }
+
+    .track.active {
+      background: #87334b66;
+      color: #ff9ab0;
+      box-shadow: inset 3px 0 var(--pink);
+    }
+
+    .track-number {
+      width: 24px;
+      color: #b77d8b;
+    }
+
+    .track-name { flex: 1; }
+
+    .track-duration {
+      color: #a98b91;
+      font-size: 12px;
+    }
+
+    .track-snow {
+      margin-left: 5px;
+      color: #b6caff;
+      font-size: 23px;
+      text-shadow: 0 0 10px #6c83ff;
+    }
+
+    .track.active .track-snow {
+      animation: snowGlow 3s ease-in-out infinite;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 750px;
+      margin: 24px auto 0;
+      padding: 14px 18px;
+      background: #1b1018ee;
+      border: 1px solid #a0445c;
+      border-radius: 45px;
+      box-shadow: 0 0 20px #9e304a20;
+      font: 12px Arial, sans-serif;
+    }
+
+    .control-btn {
+      flex-shrink: 0;
+      width: 30px;
+      height: 34px;
+      background: none;
+      border: none;
+      color: #f4c8d0;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .play-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--pink);
+      border-radius: 50%;
+      box-shadow: 0 0 12px #e8789166;
+    }
+
+    .time {
+      white-space: nowrap;
+      color: #d8bec4;
+    }
+
+    input[type="range"] {
+      min-width: 0;
+      accent-color: var(--pink);
+      cursor: pointer;
+    }
+
+    #progress { flex: 1; }
+
+    #volume { width: 65px; }
 
     .footer {
-      margin-top: 27px;
-      font-family: Arial, sans-serif;
-      font-size: 9px;
+      margin-top: 34px;
+      color: #85676b;
+      font: 9px Arial, sans-serif;
       letter-spacing: 4px;
-      color: #675c59;
     }
 
-    @media (max-width: 400px) {
-      .start-btn {
-        font-size: 14px;
-        letter-spacing: 1px;
-        gap: 8px;
-      }
+    @media (max-width: 650px) {
+      .memorabilia { display: none; }
+      .cover { max-width: 430px; }
+      .vinyl { left: -10px; width: 110px; height: 110px; }
+      .playlist { margin-left: 28px; padding: 12px 9px; }
+      .controls { gap: 5px; padding: 10px; }
+      .control-btn { width: 27px; }
+      #volume { width: 40px; }
+      .track { gap: 6px; padding: 10px 7px; }
+      .footer { letter-spacing: 2px; }
+    }
 
-      .snowflake {
-        font-size: 34px;
-      }
+    @media (max-width: 380px) {
+      .start-btn { font-size: 13px; letter-spacing: 0; }
+      .snowflake { font-size: 30px; }
+      .controls { flex-wrap: wrap; justify-content: center; }
+      #progress { flex-basis: 40%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .snowflake {
+      .snowflake, .vinyl.spinning,
+      .track.active .track-snow {
         animation: none;
       }
     }
@@ -241,18 +443,35 @@
 </head>
 
 <body>
-
-  <main class="player">
+  <main class="page">
 
     <div class="label">PRIVATE SESSION • 2026</div>
 
-    <img
-      class="cover"
-      src="7777777777.png"
-      alt="SNIZHKA — BETWEEN US"
-    >
+    <div class="artwork">
+      <img
+        class="cover"
+        src="7777777777.png"
+        alt="SNIZHKA — BETWEEN US"
+      >
 
-    <!-- КНОПКА ПОЧАТКУ -->
+      <div class="memorabilia" aria-hidden="true">
+        <div class="cassette">
+          <div class="cassette-title">SNIZHKA</div>
+          <div class="tape-window">
+            <div class="reel"></div>
+            <div class="reel"></div>
+          </div>
+          <small>Between Us</small>
+        </div>
+
+        <div class="photo-note">
+          <div class="winter"></div>
+          <span>Somewhere in winter...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- КНОПКА КВЕСТУ -->
 
     <div class="quest-button">
       <button class="start-btn" onclick="showPassword()">
@@ -264,12 +483,8 @@
     <!-- ПЕРШИЙ ПАРОЛЬ -->
 
     <div class="password-box" id="passwordBox">
-
       <h3>❄️ Перший ключ</h3>
-
-      <p>
-        Щоб продовжити, введи пароль.
-      </p>
+      <p>Щоб продовжити, введи пароль.</p>
 
       <input
         type="text"
@@ -283,7 +498,6 @@
       </button>
 
       <div id="message" aria-live="polite"></div>
-
     </div>
 
     <h1>SNIZHKA</h1>
@@ -293,9 +507,59 @@
       This page sounds better with headphones.
     </div>
 
-    <audio controls preload="metadata">
-      <source src="7777777.mp3" type="audio/mpeg">
-    </audio>
+    <!-- МУЗИЧНИЙ АРХІВ -->
+
+    <div class="soundtrack-title">Private Soundtrack</div>
+
+    <section class="archive" aria-label="Музичний плейлист">
+      <div class="vinyl" id="vinyl" aria-hidden="true"></div>
+      <div class="playlist" id="playlist"></div>
+    </section>
+
+    <div class="controls">
+      <button
+        class="control-btn"
+        id="previous"
+        aria-label="Попередня пісня"
+      >⏮</button>
+
+      <button
+        class="control-btn play-btn"
+        id="play"
+        aria-label="Відтворити"
+      >▶</button>
+
+      <button
+        class="control-btn"
+        id="next"
+        aria-label="Наступна пісня"
+      >⏭</button>
+
+      <span class="time" id="time">0:00 / 0:00</span>
+
+      <input
+        type="range"
+        id="progress"
+        min="0"
+        max="100"
+        value="0"
+        aria-label="Позиція відтворення"
+      >
+
+      <span aria-hidden="true">♫</span>
+
+      <input
+        type="range"
+        id="volume"
+        min="0"
+        max="1"
+        step="0.05"
+        value="0.7"
+        aria-label="Гучність"
+      >
+    </div>
+
+    <audio id="audio" preload="metadata"></audio>
 
     <div class="footer">
       ONE VOICE • ONE RECORDING • ONE MOMENT
@@ -304,45 +568,209 @@
   </main>
 
   <script>
-  function showPassword() {
-    const box = document.getElementById("passwordBox");
+    // ЛОГІКА КВЕСТУ — ЗБЕРЕЖЕНА
 
-    box.style.display = "block";
-    document.getElementById("password").focus();
-  }
-
-  function normalizePassword(text) {
-    return text
-      .toLowerCase()
-      .replace(/['’ʼ`´]/g, "")
-      .trim();
-  }
-
-  function checkPassword() {
-    const input = document.getElementById("password");
-    const message = document.getElementById("message");
-
-    const answer = normalizePassword(input.value);
-
-    if (answer === "памятай") {
-      message.textContent = "Правильно! Відкриваємо історію... ❄️";
-
-      setTimeout(function() {
-        window.location.href = "quest.html";
-      }, 1000);
-
-    } else {
-      message.textContent = "Не зовсім... Спробуй ще раз ❄️";
+    function showPassword() {
+      const box = document.getElementById("passwordBox");
+      box.style.display = "block";
+      document.getElementById("password").focus();
     }
-  }
 
-  document.getElementById("password")
-    .addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {
-        checkPassword();
+    function normalizePassword(text) {
+      return text
+        .toLowerCase()
+        .replace(/['’ʼ`´]/g, "")
+        .trim();
+    }
+
+    function checkPassword() {
+      const input = document.getElementById("password");
+      const message = document.getElementById("message");
+      const answer = normalizePassword(input.value);
+
+      if (answer === "памятай") {
+        message.textContent =
+          "Правильно! Відкриваємо історію... ❄️";
+
+        setTimeout(function() {
+          window.location.href = "quest.html";
+        }, 1000);
+
+      } else {
+        message.textContent =
+          "Не зовсім... Спробуй ще раз ❄️";
+      }
+    }
+
+    document.getElementById("password")
+      .addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          checkPassword();
+        }
+      });
+
+    // МУЗИЧНИЙ ПЛЕЙЛИСТ
+
+    const tracks = [
+      { title: "Between Us", file: "7777777.mp3" },
+      { title: "Snowfall", file: "song2.mp3" },
+      { title: "Letters in the Dark", file: "song3.mp3" },
+      { title: "The Last Secret", file: "song4.mp3" },
+      { title: "About Us", file: "song5.mp3" }
+    ];
+
+    const audio = document.getElementById("audio");
+    const playlist = document.getElementById("playlist");
+    const playButton = document.getElementById("play");
+    const progress = document.getElementById("progress");
+    const volume = document.getElementById("volume");
+    const timeLabel = document.getElementById("time");
+    const vinyl = document.getElementById("vinyl");
+
+    let currentTrack = 0;
+
+    function formatTime(seconds) {
+      if (!Number.isFinite(seconds)) return "0:00";
+
+      const minutes = Math.floor(seconds / 60);
+      const remaining = Math.floor(seconds % 60);
+
+      return minutes + ":" + String(remaining).padStart(2, "0");
+    }
+
+    function renderPlaylist() {
+      playlist.innerHTML = "";
+
+      tracks.forEach(function(track, index) {
+        const button = document.createElement("button");
+        button.className =
+          "track" + (index === currentTrack ? " active" : "");
+
+        const number = document.createElement("span");
+        number.className = "track-number";
+        number.textContent =
+          String(index + 1).padStart(2, "0");
+
+        const name = document.createElement("span");
+        name.className = "track-name";
+        name.textContent = track.title;
+
+        const duration = document.createElement("span");
+        duration.className = "track-duration";
+        duration.textContent = index === currentTrack
+          ? formatTime(audio.duration)
+          : "—:—";
+
+        const snow = document.createElement("span");
+        snow.className = "track-snow";
+        snow.textContent = "❄";
+
+        button.append(number, name, duration, snow);
+        button.addEventListener("click", function() {
+          loadTrack(index, true);
+        });
+
+        playlist.appendChild(button);
+      });
+    }
+
+    function loadTrack(index, autoplay = false) {
+      currentTrack = (index + tracks.length) % tracks.length;
+
+      audio.src = tracks[currentTrack].file;
+      audio.load();
+
+      progress.value = 0;
+      timeLabel.textContent = "0:00 / 0:00";
+      renderPlaylist();
+
+      if (autoplay) {
+        audio.play().catch(function() {
+          updatePlayButton();
+        });
+      } else {
+        updatePlayButton();
+      }
+    }
+
+    function updatePlayButton() {
+      const playing = !audio.paused;
+
+      playButton.textContent = playing ? "❚❚" : "▶";
+      playButton.setAttribute(
+        "aria-label",
+        playing ? "Пауза" : "Відтворити"
+      );
+
+      vinyl.classList.toggle("spinning", playing);
+    }
+
+    playButton.addEventListener("click", function() {
+      if (audio.paused) {
+        audio.play().catch(function() {
+          updatePlayButton();
+        });
+      } else {
+        audio.pause();
       }
     });
-</script>
 
+    document.getElementById("previous")
+      .addEventListener("click", function() {
+        loadTrack(currentTrack - 1, true);
+      });
+
+    document.getElementById("next")
+      .addEventListener("click", function() {
+        loadTrack(currentTrack + 1, true);
+      });
+
+    audio.addEventListener("play", updatePlayButton);
+    audio.addEventListener("pause", updatePlayButton);
+
+    audio.addEventListener("loadedmetadata", function() {
+      timeLabel.textContent =
+        formatTime(audio.currentTime) +
+        " / " +
+        formatTime(audio.duration);
+
+      renderPlaylist();
+    });
+
+    audio.addEventListener("timeupdate", function() {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        progress.value =
+          (audio.currentTime / audio.duration) * 100;
+      }
+
+      timeLabel.textContent =
+        formatTime(audio.currentTime) +
+        " / " +
+        formatTime(audio.duration);
+    });
+
+    progress.addEventListener("input", function() {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        audio.currentTime =
+          (Number(progress.value) / 100) * audio.duration;
+      }
+    });
+
+    volume.addEventListener("input", function() {
+      audio.volume = Number(volume.value);
+    });
+
+    audio.addEventListener("ended", function() {
+      loadTrack(currentTrack + 1, true);
+    });
+
+    audio.addEventListener("error", function() {
+      updatePlayButton();
+      timeLabel.textContent = "Файл не знайдено";
+    });
+
+    audio.volume = Number(volume.value);
+    loadTrack(0);
+  </script>
 </body>
 </html>
